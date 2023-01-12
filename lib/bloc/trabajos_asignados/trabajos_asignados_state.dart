@@ -1,6 +1,22 @@
 part of 'trabajos_asignados_bloc.dart';
 
-@immutable
-abstract class TrabajosAsignadosState {}
+class TrabajosAsignadosState {
+  TrabajosAsignadosState({required this.listaTareas});
 
-class TrabajosAsignadosInitial extends TrabajosAsignadosState {}
+  final List<TareaView> listaTareas;
+
+  copyWith({
+    List<TareaView>? listaTareas,
+  }) {
+    return TrabajosAsignadosState(
+      listaTareas: listaTareas ?? this.listaTareas,
+    );
+  }
+}
+
+class TrabajosAsignadosInitial extends TrabajosAsignadosState {
+  TrabajosAsignadosInitial()
+      : super(
+          listaTareas: [],
+        );
+}
