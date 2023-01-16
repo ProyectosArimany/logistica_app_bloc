@@ -27,7 +27,7 @@ class Tarea {
         tiempoEstimadoEnMinutos: json["tiempoEstimadoEnMinutos"],
       );
 
-  List<Tarea> fromJsonList(List<Map<String, dynamic>> lista) =>
+  static List<Tarea> fromJsonList(List<Map<String, dynamic>> lista) =>
       lista.map((tarea) => Tarea.fromJson(tarea)).toList();
 
   Map<String, dynamic> toJson() => {

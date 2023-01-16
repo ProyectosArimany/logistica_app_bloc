@@ -42,7 +42,7 @@ class TareaAsignada {
         fechaYHoraDeFinalizacion: json["fechaYHoraDeFinalizacion"],
       );
 
-  List<TareaAsignada> fromJsonList(List<Map<String, dynamic>> lista) =>
+  static List<TareaAsignada> fromJsonList(List<Map<String, dynamic>> lista) =>
       lista.map((tarea) => TareaAsignada.fromJson(tarea)).toList();
 
   Map<String, dynamic> toJson() => {

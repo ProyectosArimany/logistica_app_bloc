@@ -30,7 +30,7 @@ class TareaView {
         estadoTarea: json["estadoTarea"],
       );
 
-  List<TareaView> fromJsonList(List<Map<String, dynamic>> lista) =>
+  static List<TareaView> fromJsonList(List<Map<String, dynamic>> lista) =>
       lista.map((tarea) => TareaView.fromJson(tarea)).toList();
 
   Map<String, dynamic> toJson() => {
