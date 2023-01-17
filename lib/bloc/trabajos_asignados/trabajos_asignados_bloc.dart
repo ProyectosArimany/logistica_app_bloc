@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:logistica_app_bloc/models/params/lista_tareas_asignadas_query.dart';
 import 'package:logistica_app_bloc/models/tarea_view.dart';
 import 'package:logistica_app_bloc/providers/tareas_provider.dart';
 
@@ -13,7 +14,7 @@ class TrabajosAsignadosBloc
   TrabajosAsignadosBloc(this.tareasProvider)
       : super(TrabajosAsignadosInitial()) {
     on<GetListaTareas>((event, emit) async {
-      var lista = await tareasProvider.listaTareas(event.token);
+      var lista = await tareasProvider.listaTareas(event.token, event.query);
       if (lista.status != 200) {
         emit(event.lastState.copyWith(listaTareas: []));
         return;

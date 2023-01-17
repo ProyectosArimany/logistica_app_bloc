@@ -8,8 +8,10 @@ class TrabajosAsignadosEvent {
 }
 
 class GetListaTareas extends TrabajosAsignadosEvent {
-  const GetListaTareas(TrabajosAsignadosState lastState, {required this.token})
+  const GetListaTareas(TrabajosAsignadosState lastState,
+      {required this.token, required this.query})
       : super(lastState);
 
   final String token;
+  final ListaTareasAsignadasQuery query;
 }

@@ -8,8 +8,9 @@ import 'package:logistica_app_bloc/models/tarea.dart';
 import 'package:logistica_app_bloc/utils/url.dart';
 
 class TareasProvider {
-  Future<RespFetch<List<TareaView>>> listaTareas(String token) async =>
-      await Fetcher.get(Uri.parse("$url/Tareas/ListaTareas"),
+  Future<RespFetch<List<TareaView>>> listaTareas(
+          String token, ListaTareasAsignadasQuery query) async =>
+      await Fetcher.get(Uri.http(url, "/Tareas/ListaTareas", query.toJson()),
           headers: {"Authorization": token}, maper: TareaView.fromJsonList);
 
   Future<RespFetch<Tarea>> crearTarea(
