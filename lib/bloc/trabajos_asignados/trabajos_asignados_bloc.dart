@@ -1,8 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:logistica_app_bloc/models/params/lista_rutas_query.dart';
 import 'package:logistica_app_bloc/models/params/lista_tareas_asignadas_query.dart';
+import 'package:logistica_app_bloc/models/ruta_despacho_view.dart';
 import 'package:logistica_app_bloc/models/tarea_view.dart';
-import 'package:logistica_app_bloc/providers/tareas_provider.dart';
+import 'package:logistica_app_bloc/repositories/pedidos_repository.dart';
+import 'package:logistica_app_bloc/repositories/tareas_repository.dart';
 
 part 'trabajos_asignados_event.dart';
 part 'trabajos_asignados_state.dart';
@@ -15,12 +18,14 @@ class TrabajosAsignadosBloc
       : super(TrabajosAsignadosInitial()) {
     on<GetListaTareas>((event, emit) async {
       var lista = await tareasProvider.listaTareas(event.token, event.query);
-      if (lista.status != 200) {
-        emit(event.lastState.copyWith(listaTareas: []));
-        return;
-      }
+      if (lista.status != 200) return emit(state.copyWith(listaTareas: []));
+      emit(state.copyWith(listaTareas: lista.data));
+    });
 
-      emit(event.lastState.copyWith(listaTareas: lista.data));
+    on<GetListaRutasAsignadas>((event, emit) async {
+      var lista = await PedidosRepository.listaRutas(event.token, event.query);
+      if (lista.status != 200) return emit(state.copyWith(listaRutas: []));
+      emit(state.copyWith(listaRutas: lista.data));
     });
   }
 }

@@ -2,16 +2,19 @@ part of 'trabajos_asignados_bloc.dart';
 
 @immutable
 class TrabajosAsignadosEvent {
-  const TrabajosAsignadosEvent(this.lastState);
-
-  final TrabajosAsignadosState lastState;
+  const TrabajosAsignadosEvent();
 }
 
 class GetListaTareas extends TrabajosAsignadosEvent {
-  const GetListaTareas(TrabajosAsignadosState lastState,
-      {required this.token, required this.query})
-      : super(lastState);
+  const GetListaTareas({required this.token, required this.query});
 
   final String token;
   final ListaTareasAsignadasQuery query;
+}
+
+class GetListaRutasAsignadas extends TrabajosAsignadosEvent {
+  const GetListaRutasAsignadas({required this.token, required this.query});
+
+  final String token;
+  final ListaRutasQuery query;
 }

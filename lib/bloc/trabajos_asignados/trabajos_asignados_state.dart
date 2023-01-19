@@ -1,22 +1,19 @@
 part of 'trabajos_asignados_bloc.dart';
 
 class TrabajosAsignadosState {
-  TrabajosAsignadosState({required this.listaTareas});
+  TrabajosAsignadosState({required this.listaTareas, required this.listaRutas});
 
   final List<TareaView> listaTareas;
+  final List<RutaDespachoView> listaRutas;
 
-  copyWith({
-    List<TareaView>? listaTareas,
-  }) {
-    return TrabajosAsignadosState(
-      listaTareas: listaTareas ?? this.listaTareas,
-    );
-  }
+  copyWith(
+          {List<TareaView>? listaTareas, List<RutaDespachoView>? listaRutas}) =>
+      TrabajosAsignadosState(
+        listaTareas: listaTareas ?? this.listaTareas,
+        listaRutas: listaRutas ?? this.listaRutas,
+      );
 }
 
 class TrabajosAsignadosInitial extends TrabajosAsignadosState {
-  TrabajosAsignadosInitial()
-      : super(
-          listaTareas: [],
-        );
+  TrabajosAsignadosInitial() : super(listaTareas: [], listaRutas: []);
 }
