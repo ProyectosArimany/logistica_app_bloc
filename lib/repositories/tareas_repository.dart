@@ -10,21 +10,21 @@ import 'package:logistica_app_bloc/utils/url.dart';
 class TareasProvider {
   Future<RespFetch<List<TareaView>>> listaTareas(
           String token, ListaTareasAsignadasQuery query) async =>
-      await Fetcher.get(Uri.http(url, "/Tareas/ListaTareas", query.toJson()),
+      await Fetcher.get(URL("/Tareas/ListaTareas", query.toJson()),
           headers: {"Authorization": token}, maper: TareaView.fromJsonList);
 
   Future<RespFetch<Tarea>> crearTarea(
           String token, CrearTareaQuery query) async =>
-      await Fetcher.post(Uri.parse("$url/Tareas/CrearTarea"),
+      await Fetcher.post(URL("/Tareas/CrearTarea", query.toJson()),
           headers: {"Authorization": token}, maper: Tarea.fromJson);
 
   Future<RespFetch<TareaAsignada>> listaTareasAsignadas(
           String token, ListaTareasAsignadasQuery query) async =>
-      await Fetcher.get(Uri.parse("$url/Tareas/ListaTareasAsignadas"),
+      await Fetcher.get(URL("/Tareas/ListaTareasAsignadas", query.toJson()),
           headers: {"Authorization": token}, maper: TareaAsignada.fromJson);
 
   Future<RespFetch<TareaAsignada>> asignarTarea(
           String token, AsignarTareaQuery query) async =>
-      await Fetcher.post(Uri.parse("$url/Tareas/AsignarTarea"),
+      await Fetcher.post(URL("/Tareas/AsignarTarea", query.toJson()),
           headers: {"Authorization": token}, maper: TareaAsignada.fromJson);
 }
