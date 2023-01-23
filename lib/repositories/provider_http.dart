@@ -176,8 +176,14 @@ class Fetcher {
     return _compStatus(peticionPost, maper) as RespFetch<T>;
   }
 
-  static Map<String, String> _getHeaders(Map<String, String>? user) {
+  static Map<String, String> _getHeaders(Map<String, dynamic>? user) {
     if (user == null || user.isEmpty) return _headders;
+
+    // * Eliminando las propiedades nulas de "user"
+    List<String> keys = user.keys.toList();
+    for (var i = 0; i < keys.length; i++) {
+      if (user[keys[i]] == null) user.remove(keys[i]);
+    }
 
     final List<String> localHeaderkeys =
         _headders.entries.map((p) => p.key.toLowerCase()).toList();
@@ -189,7 +195,7 @@ class Fetcher {
         user.addAll({localHeader: _headders[localHeader]!});
       }
     }
-    return user;
+    return user as Map<String, String>;
   }
 
   static RespFetch _compStatus(http.Response peticion, dynamic Maper) {
