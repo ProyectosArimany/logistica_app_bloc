@@ -185,11 +185,13 @@ class Fetcher {
       if (user[keys[i]] == null) user.remove(keys[i]);
     }
 
+    // * Convirtiendo en arreglo de string las llaves
     final List<String> localHeaderkeys =
         _headders.entries.map((p) => p.key.toLowerCase()).toList();
     final List<String> userHeaderKeys =
         user.entries.map((p) => p.key.toLowerCase()).toList();
 
+    // * Añadiendo las propiedades nuevas
     for (var localHeader in localHeaderkeys) {
       if (!userHeaderKeys.contains(localHeader)) {
         user.addAll({localHeader: _headders[localHeader]!});
