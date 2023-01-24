@@ -176,28 +176,35 @@ class Fetcher {
     return _compStatus(peticionPost, maper) as RespFetch<T>;
   }
 
-  static Map<String, String> _getHeaders(Map<String, dynamic>? user) {
+  static Map<String, String> _getHeaders(Map<String, String?>? user) {
     if (user == null || user.isEmpty) return _headders;
 
-    // * Eliminando las propiedades nulas de "user"
+    // * Eliminando las propiedades nulas
     List<String> keys = user.keys.toList();
     for (var i = 0; i < keys.length; i++) {
       if (user[keys[i]] == null) user.remove(keys[i]);
     }
 
-    // * Convirtiendo en arreglo de string las llaves
-    final List<String> localHeaderkeys =
-        _headders.entries.map((p) => p.key.toLowerCase()).toList();
-    final List<String> userHeaderKeys =
-        user.entries.map((p) => p.key.toLowerCase()).toList();
+    // * listas de keys de los Map
+    final List<String> localHeaderkeys = _headders.keys.toList();
+    final List<String> userHeaderKeys = user.keys.toList();
 
-    // * Añadiendo las propiedades nuevas
-    for (var localHeader in localHeaderkeys) {
-      if (!userHeaderKeys.contains(localHeader)) {
-        user.addAll({localHeader: _headders[localHeader]!});
+    // * Lista de headders de usuario en minusculas
+    final List<String> userHeaddersLower =
+        userHeaderKeys.map((h) => h.toLowerCase()).toList();
+    // * añadiendo los headders de user a la nueva variable
+    Map<String, String> headders = {};
+    for (String userHeader in userHeaderKeys) {
+      headders[userHeader] = user[userHeader]!;
+    }
+    // * Agregando las propiedades faltantes
+    for (String localHeader in localHeaderkeys) {
+      if (!userHeaddersLower.contains(localHeader.toLowerCase())) {
+        headders[localHeader] = _headders[localHeader]!;
       }
     }
-    return user as Map<String, String>;
+
+    return headders;
   }
 
   static RespFetch _compStatus(http.Response peticion, dynamic Maper) {

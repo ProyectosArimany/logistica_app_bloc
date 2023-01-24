@@ -1,6 +1,6 @@
 class ListaTareasAsignadasQuery {
   ListaTareasAsignadasQuery({
-    this.empresa,
+    required this.empresa,
     this.noTarea,
     this.descripcion,
     this.userId,
@@ -8,7 +8,7 @@ class ListaTareasAsignadasQuery {
     this.pageNo,
   });
 
-  String? empresa;
+  String empresa;
   int? noTarea;
   String? descripcion;
   String? userId;

@@ -1,13 +1,13 @@
 class CrearTareaQuery {
   CrearTareaQuery({
-    this.empresa,
+    required this.empresa,
     this.noTarea,
     this.tipoDeTarea,
     this.tiempoEstimadoHoras,
     this.descripcion,
   });
 
-  String? empresa;
+  String empresa;
   int? noTarea;
   int? tipoDeTarea;
   int? tiempoEstimadoHoras;

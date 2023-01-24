@@ -1,13 +1,13 @@
 class ListadoPedidosEnRutaQuery {
   ListadoPedidosEnRutaQuery({
-    this.empresa,
+    required this.empresa,
     this.rutaInicial,
     this.rutaFinal,
     this.pageSize,
     this.pageNo,
   });
 
-  String? empresa;
+  String empresa;
   int? rutaInicial;
   int? rutaFinal;
   int? pageSize;
