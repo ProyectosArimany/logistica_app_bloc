@@ -21,13 +21,13 @@ class TareaView {
 
   factory TareaView.fromJson(Map<String, dynamic> json) => TareaView(
         empresa: json["empresa"],
-        noTarea: json["noTarea"],
-        tipoDeTarea: json["tipoDeTarea"],
+        noTarea: int.tryParse(json["noTarea"])!,
+        tipoDeTarea: int.tryParse(json["tipoDeTarea"])!,
         usuarioCreo: json["usuarioCreo"],
         descripcionDeTarea: json["descripcionDeTarea"],
-        tiempoEstimadoEnMinutos: json["tiempoEstimadoEnMinutos"],
+        tiempoEstimadoEnMinutos: int.tryParse(json["tiempoEstimadoEnMinutos"])!,
         responsable: json["responsable"],
-        estadoTarea: json["estadoTarea"],
+        estadoTarea: int.tryParse(json["estadoTarea"])!,
       );
 
   static List<TareaView> fromJsonList(List<Map<String, dynamic>> lista) =>
