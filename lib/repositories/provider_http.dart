@@ -219,7 +219,10 @@ class Fetcher {
             ? respuesta =
                 RespFetch(status: peticion.statusCode, data: data, msg: "")
             : respuesta = RespFetch(
-                status: peticion.statusCode, data: Maper(data), msg: "");
+                status: peticion.statusCode,
+                data: Maper(data as Map<String, dynamic>),
+                msg: "",
+              );
       } catch (err) {
         const String msg =
             "Los datos recibidos no pueden ser convertidos a objetos de tipo 'Maper'";
