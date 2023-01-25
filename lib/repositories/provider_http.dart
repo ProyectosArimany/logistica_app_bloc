@@ -212,15 +212,15 @@ class Fetcher {
     RespFetch<T> respuesta;
 
     try {
-      final dynamic data = jsonDecode(peticion.body);
+      final Map<String, dynamic> data = jsonDecode(peticion.body);
 
       try {
         Maper == null
             ? respuesta =
-                RespFetch(status: peticion.statusCode, data: data, msg: "")
+                RespFetch(status: peticion.statusCode, data: data as T, msg: "")
             : respuesta = RespFetch(
                 status: peticion.statusCode,
-                data: Maper(data as Map<String, dynamic>),
+                data: Maper(data),
                 msg: "",
               );
       } catch (err) {
