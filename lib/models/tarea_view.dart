@@ -15,7 +15,7 @@ class TareaView {
   int? tipoDeTarea;
   String? usuarioCreo;
   String? descripcionDeTarea;
-  String? tiempoEstimadoEnMinutos;
+  int? tiempoEstimadoEnMinutos;
   String? responsable;
   int? estadoTarea;
 
