@@ -5,7 +5,8 @@ import 'package:http/http.dart' as http;
 class RespFetch<T> {
   final int status;
   final T? data;
-  const RespFetch({this.status = 1000, this.data});
+  final String msg;
+  const RespFetch({this.status = 1000, this.data, required this.msg});
 }
 
 class Fetcher {
@@ -173,7 +174,7 @@ class Fetcher {
     http.Response peticionPost =
         http.Response(resp.stream.toString(), resp.statusCode);
 
-    return _compStatus(peticionPost, maper) as RespFetch<T>;
+    return _compStatus<T>(peticionPost, maper);
   }
 
   static Map<String, String> _getHeaders(Map<String, String?>? user) {
@@ -207,24 +208,26 @@ class Fetcher {
     return headders;
   }
 
-  static RespFetch _compStatus(http.Response peticion, dynamic Maper) {
-    RespFetch respuesta;
+  static RespFetch<T> _compStatus<T>(http.Response peticion, dynamic Maper) {
+    RespFetch<T> respuesta;
 
     try {
       final dynamic data = jsonDecode(peticion.body);
 
       try {
         Maper == null
-            ? respuesta = RespFetch(status: peticion.statusCode, data: data)
-            : respuesta =
-                RespFetch(status: peticion.statusCode, data: Maper(data));
+            ? respuesta =
+                RespFetch(status: peticion.statusCode, data: data, msg: "")
+            : respuesta = RespFetch(
+                status: peticion.statusCode, data: Maper(data), msg: "");
       } catch (err) {
         const String msg =
             "Los datos recibidos no pueden ser convertidos a objetos de tipo 'Maper'";
-        respuesta = const RespFetch(status: 1000, data: msg);
+        respuesta = const RespFetch(status: 1000, data: null, msg: msg);
       }
     } catch (e) {
-      respuesta = RespFetch(status: peticion.statusCode, data: peticion.body);
+      respuesta = RespFetch<T>(
+          status: peticion.statusCode, data: null, msg: e.toString());
     }
     return respuesta;
   }
