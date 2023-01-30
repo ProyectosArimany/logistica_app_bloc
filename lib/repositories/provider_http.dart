@@ -19,7 +19,7 @@ class Fetcher {
     final http.Response peticionGet =
         await http.get(url, headers: _getHeaders(headers));
 
-    return _compStatus(peticionGet, maper) as RespFetch<T>;
+    return _compStatus<T>(peticionGet, maper);
   }
 
   static Future<RespFetch<T>> post<T>(
@@ -36,7 +36,7 @@ class Fetcher {
       encoding: encoding,
     );
 
-    return _compStatus(peticionPost, maper) as RespFetch<T>;
+    return _compStatus<T>(peticionPost, maper);
   }
 
   static Future<RespFetch<T>> put<T>(
@@ -53,7 +53,7 @@ class Fetcher {
       encoding: encoding,
     );
 
-    return _compStatus(peticionPut, maper) as RespFetch<T>;
+    return _compStatus<T>(peticionPut, maper);
   }
 
   static Future<RespFetch<T>> patch<T>(
@@ -70,7 +70,7 @@ class Fetcher {
       encoding: encoding,
     );
 
-    return _compStatus(peticionPatch, maper) as RespFetch<T>;
+    return _compStatus<T>(peticionPatch, maper);
   }
 
   static Future<RespFetch<T>> delete<T>(
@@ -87,7 +87,7 @@ class Fetcher {
       encoding: encoding,
     );
 
-    return _compStatus(peticionDelete, maper) as RespFetch<T>;
+    return _compStatus<T>(peticionDelete, maper);
   }
 
   static Future<RespFetch<T>> postMultipart<T>(
@@ -116,7 +116,7 @@ class Fetcher {
     http.Response peticionPost =
         http.Response(resp.stream.toString(), resp.statusCode);
 
-    return _compStatus(peticionPost, maper) as RespFetch<T>;
+    return _compStatus<T>(peticionPost, maper);
   }
 
   static Future<RespFetch<T>> putMultipart<T>(
@@ -145,7 +145,7 @@ class Fetcher {
     http.Response peticionPost =
         http.Response(resp.stream.toString(), resp.statusCode);
 
-    return _compStatus(peticionPost, maper) as RespFetch<T>;
+    return _compStatus<T>(peticionPost, maper);
   }
 
   static Future<RespFetch<T>> patchMultipart<T>(
@@ -204,7 +204,6 @@ class Fetcher {
         headders[localHeader] = _headders[localHeader]!;
       }
     }
-
     return headders;
   }
 
