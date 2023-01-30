@@ -30,8 +30,9 @@ class TareaView {
         estadoTarea: int.tryParse(json["estadoTarea"])!,
       );
 
-  static List<TareaView> fromJsonList(List<Map<String, dynamic>> lista) =>
-      lista.map((tarea) => TareaView.fromJson(tarea)).toList();
+  static List<TareaView> fromJsonList(List lista) => lista
+      .map((tarea) => TareaView.fromJson(tarea as Map<String, dynamic>))
+      .toList();
 
   Map<String, dynamic> toJson() => {
         "empresa": empresa,
