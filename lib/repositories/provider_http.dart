@@ -208,29 +208,26 @@ class Fetcher {
     return headders;
   }
 
-  static RespFetch<T> _compStatus<T>(http.Response peticion, dynamic Maper) {
-    RespFetch<T> respuesta;
+  static RespFetch<J> _compStatus<J>(http.Response peticion, dynamic Maper) {
+    RespFetch<J> respuesta;
 
     try {
-      final Map<String, dynamic> data = jsonDecode(peticion.body);
+      final dynamic data = jsonDecode(peticion.body);
 
       try {
         Maper == null
             ? respuesta =
-                RespFetch(status: peticion.statusCode, data: data as T, msg: "")
+                RespFetch(status: peticion.statusCode, data: data, msg: "")
             : respuesta = RespFetch(
-                status: peticion.statusCode,
-                data: Maper(data),
-                msg: "",
-              );
+                status: peticion.statusCode, data: Maper(data), msg: "");
       } catch (err) {
         const String msg =
             "Los datos recibidos no pueden ser convertidos a objetos de tipo 'Maper'";
         respuesta = const RespFetch(status: 1000, data: null, msg: msg);
       }
     } catch (e) {
-      respuesta = RespFetch<T>(
-          status: peticion.statusCode, data: null, msg: e.toString());
+      respuesta =
+          RespFetch(status: peticion.statusCode, data: null, msg: e.toString());
     }
     return respuesta;
   }
