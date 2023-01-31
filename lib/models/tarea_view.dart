@@ -1,23 +1,23 @@
 class TareaView {
   TareaView({
-    this.empresa,
-    this.noTarea,
-    this.tipoDeTarea,
-    this.usuarioCreo,
-    this.descripcionDeTarea,
-    this.tiempoEstimadoEnMinutos,
-    this.responsable,
-    this.estadoTarea,
+    required this.empresa,
+    required this.noTarea,
+    required this.tipoDeTarea,
+    required this.usuarioCreo,
+    required this.descripcionDeTarea,
+    required this.tiempoEstimadoEnMinutos,
+    required this.responsable,
+    required this.estadoTarea,
   });
 
-  String? empresa;
-  int? noTarea;
-  int? tipoDeTarea;
-  String? usuarioCreo;
-  String? descripcionDeTarea;
-  int? tiempoEstimadoEnMinutos;
-  String? responsable;
-  int? estadoTarea;
+  String empresa;
+  int noTarea;
+  int tipoDeTarea;
+  String usuarioCreo;
+  String descripcionDeTarea;
+  int tiempoEstimadoEnMinutos;
+  String responsable;
+  int estadoTarea;
 
   factory TareaView.fromJson(Map<String, dynamic> json) => TareaView(
         empresa: json["empresa"],

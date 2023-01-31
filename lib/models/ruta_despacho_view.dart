@@ -1,33 +1,33 @@
 class RutaDespachoView {
   RutaDespachoView({
-    this.areaDeEmpaquetado,
-    this.areaDeRevision,
-    this.bodegaDestino,
-    this.bodegaOrigen,
-    this.empresa,
-    this.fechaHoraCreacion,
-    this.nombre,
-    this.nombreAreaEmpaque,
-    this.nombreAreaRevision,
-    this.ruta,
-    this.usuarioCreo,
-    this.usuarioFactura,
-    this.usuarioReserva,
+    required this.areaDeEmpaquetado,
+    required this.areaDeRevision,
+    required this.bodegaDestino,
+    required this.bodegaOrigen,
+    required this.empresa,
+    required this.fechaHoraCreacion,
+    required this.nombre,
+    required this.nombreAreaEmpaque,
+    required this.nombreAreaRevision,
+    required this.ruta,
+    required this.usuarioCreo,
+    required this.usuarioFactura,
+    required this.usuarioReserva,
   });
 
-  int? areaDeEmpaquetado;
-  int? areaDeRevision;
-  String? bodegaDestino;
-  String? bodegaOrigen;
-  String? empresa;
-  String? fechaHoraCreacion;
-  String? nombre;
-  String? nombreAreaEmpaque;
-  String? nombreAreaRevision;
-  int? ruta;
-  String? usuarioCreo;
-  String? usuarioFactura;
-  String? usuarioReserva;
+  int areaDeEmpaquetado;
+  int areaDeRevision;
+  String bodegaDestino;
+  String bodegaOrigen;
+  String empresa;
+  String fechaHoraCreacion;
+  String nombre;
+  String nombreAreaEmpaque;
+  String nombreAreaRevision;
+  int ruta;
+  String usuarioCreo;
+  String usuarioFactura;
+  String usuarioReserva;
 
   factory RutaDespachoView.fromJson(Map<String, dynamic> json) =>
       RutaDespachoView(
