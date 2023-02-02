@@ -43,7 +43,7 @@ class TareasProvider {
       Fetcher.post(URL("Tareas/AsignarSubTarea", query.toJson()),
           headers: {"Authorization": token}, maper: SubTareaAsignada.fromJson);
 
-  Future<RespFetch<SubTareaAsignadaView>> listadoSubTareas(
+  Future<RespFetch<List<SubTareaAsignadaView>>> listadoSubTareas(
           String token, ListadoSubTareasQuery query) async =>
       await Fetcher.get(URL("Tareas/ListadoSubTareas", query.toJson()),
           headers: {"Authorization": token},
