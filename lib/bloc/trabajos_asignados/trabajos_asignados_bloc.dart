@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logistica_app_bloc/models/params/lista_rutas_query.dart';
 import 'package:logistica_app_bloc/models/params/lista_tareas_asignadas_query.dart';
-import 'package:logistica_app_bloc/models/params/listado_subtareas_query.dart';
 import 'package:logistica_app_bloc/models/ruta_despacho_view.dart';
 import 'package:logistica_app_bloc/models/sub_tarea_asignada_view.dart';
 import 'package:logistica_app_bloc/models/tarea_view.dart';
@@ -29,12 +28,5 @@ class TrabajosAsignadosBloc
       if (lista.status != 200) return emit(state.copyWith(listaRutas: []));
       emit(state.copyWith(listaRutas: lista.data));
     });
-
-    on<GetListaSubTareasAsignadas>(((event, emit) async {
-      var lista =
-          await tareasProvider.listadoSubTareas(event.token, event.query);
-      if (lista.status != 200) return emit(state.copyWith(listaSubTareas: []));
-      emit(state.copyWith(listaSubTareas: lista.data));
-    }));
   }
 }

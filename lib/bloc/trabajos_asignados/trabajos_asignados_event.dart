@@ -18,10 +18,3 @@ class GetListaRutasAsignadas extends TrabajosAsignadosEvent {
   final String token;
   final ListaRutasQuery query;
 }
-
-class GetListaSubTareasAsignadas extends TrabajosAsignadosEvent {
-  const GetListaSubTareasAsignadas({required this.token, required this.query});
-
-  final String token;
-  final ListadoSubTareasQuery query;
-}
