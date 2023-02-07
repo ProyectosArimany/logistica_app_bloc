@@ -7,11 +7,10 @@ import 'package:meta/meta.dart';
 part 'picking_scann_bloc_event.dart';
 part 'picking_scann_bloc_state.dart';
 
-class PickingScannBlocBloc extends Bloc<PickingScannEvent, PickingScannState> {
+class PickingScannBloc extends Bloc<PickingScannEvent, PickingScannState> {
   final TareasProvider tareasProvider;
 
-  PickingScannBlocBloc(this.tareasProvider)
-      : super(PickingScannInitialState()) {
+  PickingScannBloc(this.tareasProvider) : super(PickingScannInitialState()) {
     on<GetListaSubTareasAsignadas>(((event, emit) async {
       var lista =
           await tareasProvider.listadoSubTareas(event.token, event.query);
