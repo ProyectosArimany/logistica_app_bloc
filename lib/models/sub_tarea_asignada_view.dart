@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class SubTareaAsignadaView {
   SubTareaAsignadaView({
     required this.empresa,
@@ -31,7 +33,7 @@ class SubTareaAsignadaView {
   final int claseActividad;
   final String operador;
   final int ruta;
-  final String datoDeActividad;
+  final Map<String, dynamic> datoDeActividad;
 
   factory SubTareaAsignadaView.fromJson(Map<String, dynamic> json) =>
       SubTareaAsignadaView(
@@ -49,7 +51,7 @@ class SubTareaAsignadaView {
         claseActividad: json["claseActividad"],
         operador: json["operador"],
         ruta: json["ruta"],
-        datoDeActividad: json["datoDeActividad"],
+        datoDeActividad: jsonDecode(json["datoDeActividad"]),
       );
 
   static List<SubTareaAsignadaView> fromJsonList(List lista) => lista
