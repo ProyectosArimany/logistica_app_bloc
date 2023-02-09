@@ -8,7 +8,7 @@ part 'picking_scann_bloc_event.dart';
 part 'picking_scann_bloc_state.dart';
 
 class PickingScannBloc extends Bloc<PickingScannEvent, PickingScannState> {
-  final TareasProvider tareasProvider;
+  final TareasRepository tareasProvider;
 
   PickingScannBloc(this.tareasProvider) : super(PickingScannInitialState()) {
     on<GetListaSubTareasAsignadas>(((event, emit) async {

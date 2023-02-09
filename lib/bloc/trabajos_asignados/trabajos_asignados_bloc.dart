@@ -13,7 +13,7 @@ part 'trabajos_asignados_state.dart';
 
 class TrabajosAsignadosBloc
     extends Bloc<TrabajosAsignadosEvent, TrabajosAsignadosState> {
-  final TareasProvider tareasProvider;
+  final TareasRepository tareasProvider;
 
   TrabajosAsignadosBloc(this.tareasProvider)
       : super(TrabajosAsignadosInitial()) {
