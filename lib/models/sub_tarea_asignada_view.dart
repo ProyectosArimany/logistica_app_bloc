@@ -18,7 +18,7 @@ class SubTareaAsignadaView {
     required this.ruta,
     required this.datoDeActividad,
   });
-
+  //
   final String empresa;
   final String userId;
   final int noTarea;
