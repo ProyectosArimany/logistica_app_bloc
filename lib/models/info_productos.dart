@@ -1,5 +1,5 @@
-class InfoProductos {
-  InfoProductos({
+class InfoProducto {
+  InfoProducto({
     required this.id,
     required this.codigoUnico,
     required this.categoria,
@@ -17,7 +17,7 @@ class InfoProductos {
   final String presentacion;
   final String tamanio;
 
-  factory InfoProductos.fromJson(Map<String, dynamic> json) => InfoProductos(
+  factory InfoProducto.fromJson(Map<String, dynamic> json) => InfoProducto(
         id: json["Id"],
         codigoUnico: json["CodigoUnico"],
         categoria: json["Categoria"],
