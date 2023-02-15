@@ -6,12 +6,12 @@ import 'package:logistica_app_bloc/repositories/provider_http.dart';
 import 'package:logistica_app_bloc/utils/url.dart';
 
 class ProductosRepository {
-  static Future<RespFetch<NombreProducto>> getNombre(
+  static Future<RespFetch<List<NombreProducto>>> getNombre(
       String token, GetNombreProductoQuery query) async {
-    return await Fetcher.get<NombreProducto>(
+    return await Fetcher.get<List<NombreProducto>>(
       URL("Productos/GetNombre", query.toJson()),
       headers: {"Authorization": token},
-      maper: NombreProducto.fromJson,
+      maper: NombreProducto.fromJsonList,
     );
   }
 
