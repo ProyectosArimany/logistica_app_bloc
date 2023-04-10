@@ -22,8 +22,8 @@ class GetAlmacenes extends MoverTarimasEvent {
   final Function(BuildContext _, String __) showError;
 }
 
-class ScanQRDoneOrigen extends MoverTarimasEvent {
-  const ScanQRDoneOrigen({required this.data});
+class ScanQRDoneOrigenEvent extends MoverTarimasEvent {
+  const ScanQRDoneOrigenEvent({required this.data});
 
   final QRBarCodeData data;
 }

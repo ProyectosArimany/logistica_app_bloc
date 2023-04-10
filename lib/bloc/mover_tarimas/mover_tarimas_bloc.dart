@@ -25,7 +25,7 @@ class MoverTarimasBloc extends Bloc<MoverTarimasEvent, MoverTarimasState> {
       }
     });
 
-    on<ScanQRDoneOrigen>(((event, emit) {
+    on<ScanQRDoneOrigenEvent>(((event, emit) {
       emit(state.copyWith(
         controllerPosicionOrigen:
             TextEditingController(text: event.data.ubicacion),
