@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:logistica_app_bloc/models/almacen.dart';
 import 'package:logistica_app_bloc/models/params/get_almacenes_query.dart';
 import 'package:logistica_app_bloc/models/qr_barcode_data.dart';
 import 'package:logistica_app_bloc/repositories/ax_services_repository.dart';
@@ -16,7 +17,12 @@ class MoverTarimasBloc extends Bloc<MoverTarimasEvent, MoverTarimasState> {
     on<GetAlmacenes>((event, emit) async {
       final result = await AXServicesRepository.getAlmacenes(
           event.token, GetAlmacenesQuery(empresa: event.empresa));
-      emit(state.copyWith());
+      if (result.status == 200 || result.status == 204) {
+        emit(state.copyWith(almacenes: result.data));
+      } else {
+        emit(state.copyWith(almacenes: []));
+        event.showError(event.context, result.msg);
+      }
     });
 
     on<ScanQRDoneOrigen>(((event, emit) {

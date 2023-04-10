@@ -8,6 +8,7 @@ class MoverTarimasState {
     required this.controllerNombre,
     required this.controllerLugarDestino,
     required this.controllerPosicionDestino,
+    required this.almacenes,
   });
 
   final TextEditingController controllerPosicionOrigen;
@@ -16,6 +17,7 @@ class MoverTarimasState {
   final TextEditingController controllerNombre;
   final TextEditingController controllerLugarDestino;
   final TextEditingController controllerPosicionDestino;
+  final List<Almacen> almacenes;
 
   MoverTarimasState copyWith({
     TextEditingController? controllerPosicionOrigen,
@@ -24,6 +26,7 @@ class MoverTarimasState {
     TextEditingController? controllerNombre,
     TextEditingController? controllerLugarDestino,
     TextEditingController? controllerPosicionDestino,
+    List<Almacen>? almacenes,
   }) =>
       MoverTarimasState(
         controllerPosicionOrigen:
@@ -35,6 +38,7 @@ class MoverTarimasState {
             controllerLugarDestino ?? this.controllerLugarDestino,
         controllerPosicionDestino:
             controllerPosicionDestino ?? this.controllerPosicionDestino,
+        almacenes: almacenes ?? this.almacenes,
       );
 }
 
@@ -47,5 +51,6 @@ class MoverTarimasInitialState extends MoverTarimasState {
           controllerNombre: TextEditingController(),
           controllerLugarDestino: TextEditingController(),
           controllerPosicionDestino: TextEditingController(),
+          almacenes: [],
         );
 }

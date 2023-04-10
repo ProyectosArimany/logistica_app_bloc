@@ -10,12 +10,16 @@ class GetAlmacenes extends MoverTarimasEvent {
     required this.empresa,
     required this.pageNo,
     required this.pageSize,
+    required this.context,
+    required this.showError,
   }) : super();
 
   final String token;
   final String empresa;
   final int pageNo;
   final int pageSize;
+  final BuildContext context;
+  final Function(BuildContext _, String __) showError;
 }
 
 class ScanQRDoneOrigen extends MoverTarimasEvent {
