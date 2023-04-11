@@ -4,7 +4,6 @@ import 'package:logistica_app_bloc/models/almacen.dart';
 import 'package:logistica_app_bloc/models/params/get_almacenes_query.dart';
 import 'package:logistica_app_bloc/models/qr_barcode_data.dart';
 import 'package:logistica_app_bloc/repositories/ax_services_repository.dart';
-import 'package:meta/meta.dart';
 
 part 'mover_unidades_event.dart';
 part 'mover_unidades_state.dart';
