@@ -19,11 +19,17 @@ class GetAlmacenes extends MoverTarimasEvent {
   final int pageNo;
   final int pageSize;
   final BuildContext context;
-  final Function(BuildContext _, String __) showError;
+  final void Function(BuildContext _, String __) showError;
 }
 
 class ScanQRDoneOrigenEvent extends MoverTarimasEvent {
   const ScanQRDoneOrigenEvent({required this.data});
+
+  final QRBarCodeData data;
+}
+
+class ScanQRDoneDestinoEvent extends MoverTarimasEvent {
+  const ScanQRDoneDestinoEvent({required this.data});
 
   final QRBarCodeData data;
 }

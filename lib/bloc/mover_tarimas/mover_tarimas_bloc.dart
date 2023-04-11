@@ -25,13 +25,21 @@ class MoverTarimasBloc extends Bloc<MoverTarimasEvent, MoverTarimasState> {
       }
     });
 
-    on<ScanQRDoneOrigenEvent>(((event, emit) {
+    on<ScanQRDoneOrigenEvent>((event, emit) {
       emit(state.copyWith(
         controllerPosicionOrigen:
             TextEditingController(text: event.data.ubicacion),
         controllerLoteOrigen: TextEditingController(text: event.data.lote),
         controllerCodigo: TextEditingController(text: event.data.producto),
       ));
-    }));
+    });
+
+    on<ScanQRDoneDestinoEvent>((event, emit) {
+      emit(state.copyWith(
+        controllerPosicionDestino:
+            TextEditingController(text: event.data.ubicacion),
+        controllerLugarDestino: TextEditingController(text: event.data.lote),
+      ));
+    });
   }
 }
