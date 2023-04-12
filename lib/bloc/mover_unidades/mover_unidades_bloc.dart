@@ -25,12 +25,12 @@ class MoverUnidadesBloc extends Bloc<MoverUnidadesEvent, MoverUnidadesState> {
     });
 
     on<ScanQRDoneOrigenEvent>((event, emit) {
-      emit(state.copyWith(
-        controllerPosicionOrigen:
-            TextEditingController(text: event.data.ubicacion),
-        controllerLoteOrigen: TextEditingController(text: event.data.lote),
-        controllerCodigo: TextEditingController(text: event.data.producto),
-      ));
+      state.controllerPosicionOrigen.value =
+          TextEditingValue(text: event.data.ubicacion);
+      state.controllerPosicionOrigen.value =
+          TextEditingValue(text: event.data.lote);
+      state.controllerPosicionOrigen.value =
+          TextEditingValue(text: event.data.producto);
     });
 
     on<ScanQRDoneDestinoEvent>((event, emit) {
