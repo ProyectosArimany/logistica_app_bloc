@@ -10,12 +10,12 @@ part 'mover_tarimas_event.dart';
 part 'mover_tarimas_state.dart';
 
 class MoverTarimasBloc extends Bloc<MoverTarimasEvent, MoverTarimasState> {
-  final AXServicesRepository aXRepository;
+  final AXServicesRepository axRepository;
 
-  MoverTarimasBloc({required this.aXRepository})
+  MoverTarimasBloc({required this.axRepository})
       : super(MoverTarimasInitialState()) {
     on<GetAlmacenes>((event, emit) async {
-      final result = await AXServicesRepository.getAlmacenes(
+      final result = await axRepository.getAlmacenes(
           event.token, GetAlmacenesQuery(empresa: event.empresa));
       if (result.status == 200 || result.status == 204) {
         emit(state.copyWith(almacenes: result.data));

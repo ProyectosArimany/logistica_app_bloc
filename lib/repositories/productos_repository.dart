@@ -6,7 +6,7 @@ import 'package:logistica_app_bloc/repositories/provider_http.dart';
 import 'package:logistica_app_bloc/utils/url.dart';
 
 class ProductosRepository {
-  static Future<RespFetch<List<NombreProducto>>> getNombre(
+  Future<RespFetch<List<NombreProducto>>> getNombre(
       String token, GetNombreProductoQuery query) async {
     return await Fetcher.get<List<NombreProducto>>(
       URL("Productos/GetNombre", query.toJson()),
@@ -15,7 +15,7 @@ class ProductosRepository {
     );
   }
 
-  static Future<RespFetch<List<InfoProducto>>> getInfoProductos(
+  Future<RespFetch<List<InfoProducto>>> getInfoProductos(
       String token, GetInfoProductosQuery query) async {
     return await Fetcher.get<List<InfoProducto>>(
       URL("Productos/GetInfoProductos", query.toJson()),

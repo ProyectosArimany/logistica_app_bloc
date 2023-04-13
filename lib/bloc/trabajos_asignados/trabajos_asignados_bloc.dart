@@ -14,8 +14,9 @@ part 'trabajos_asignados_state.dart';
 class TrabajosAsignadosBloc
     extends Bloc<TrabajosAsignadosEvent, TrabajosAsignadosState> {
   final TareasRepository tareasProvider;
+  final PedidosRepository pedidosRepository;
 
-  TrabajosAsignadosBloc(this.tareasProvider)
+  TrabajosAsignadosBloc(this.tareasProvider, this.pedidosRepository)
       : super(TrabajosAsignadosInitial()) {
     on<GetListaTareas>((event, emit) async {
       var lista = await tareasProvider.listaTareas(event.token, event.query);
@@ -24,7 +25,7 @@ class TrabajosAsignadosBloc
     });
 
     on<GetListaRutasAsignadas>((event, emit) async {
-      var lista = await PedidosRepository.listaRutas(event.token, event.query);
+      var lista = await pedidosRepository.listaRutas(event.token, event.query);
       if (lista.status != 200) return emit(state.copyWith(listaRutas: []));
       emit(state.copyWith(listaRutas: lista.data));
     });
