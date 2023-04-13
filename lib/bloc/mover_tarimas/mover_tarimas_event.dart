@@ -23,9 +23,10 @@ class GetAlmacenes extends MoverTarimasEvent {
 }
 
 class ScanQRDoneOrigenEvent extends MoverTarimasEvent {
-  const ScanQRDoneOrigenEvent({required this.data});
+  const ScanQRDoneOrigenEvent({required this.data, required this.token});
 
   final QRBarCodeData data;
+  final String token;
 }
 
 class ScanQRDoneDestinoEvent extends MoverTarimasEvent {
