@@ -11,20 +11,20 @@ class AXServicesRepository {
   Future<RespFetch<List<Almacen>>> getAlmacenes(
           String token, GetAlmacenesQuery query) async =>
       await Fetcher.get<List<Almacen>>(
-        Uri.http(url, "/AXServices/AXService/Almacenes", query.toJson()),
+        Uri.http(url, "/AXServices/AXService/GetLocationList", query.toJson()),
         headers: {"Authorization": token},
         maper: Almacen.fromJsonList,
       );
 
   Future<RespFetch> getUbicaciones(String token, String empresa) async =>
       await Fetcher.get(
-        Uri.http(
-            url, "/AXServices/AXService/GetLocationList", {"empresa": empresa}),
+        Uri.http(url, "/AXServices/AXService/GetWMSLocationList",
+            {"empresa": empresa}),
         headers: {"Authorization": token},
       );
 
-  Future<RespFetch> getPosiciones(String token) async => await Fetcher.get(
-        Uri.http(url, "", {}),
+  Future<RespFetch> getLotes(String token) async => await Fetcher.get(
+        Uri.http(url, "/AXServices/AXService/getWMSBatchList", {}),
         headers: {"Authorizaton": token},
       );
 
