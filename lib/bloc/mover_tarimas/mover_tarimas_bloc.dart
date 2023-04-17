@@ -6,7 +6,6 @@ import 'package:logistica_app_bloc/models/params/get_nombre_producto_query.dart'
 import 'package:logistica_app_bloc/models/qr_barcode_data.dart';
 import 'package:logistica_app_bloc/repositories/ax_services_repository.dart';
 import 'package:logistica_app_bloc/repositories/productos_repository.dart';
-import 'package:meta/meta.dart';
 
 part 'mover_tarimas_event.dart';
 part 'mover_tarimas_state.dart';
@@ -49,5 +48,8 @@ class MoverTarimasBloc extends Bloc<MoverTarimasEvent, MoverTarimasState> {
         controllerLugarDestino: TextEditingController(text: event.data.lote),
       ));
     });
+
+    on<ChangeAlmacenDestinoEvent>(
+        (event, emit) => emit(state.copyWith(almacenDestino: event.almacen)));
   }
 }

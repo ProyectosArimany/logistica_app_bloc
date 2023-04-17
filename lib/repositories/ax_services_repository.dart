@@ -6,7 +6,7 @@ import 'package:logistica_app_bloc/repositories/provider_http.dart';
 class AXServicesRepository {
   const AXServicesRepository();
 
-  final String url = "http://arimanylocaliza:8080";
+  final String url = "arimanylocaliza:8080";
 
   Future<RespFetch<List<Almacen>>> getAlmacenes(
           String token, GetAlmacenesQuery query) async =>
@@ -24,7 +24,7 @@ class AXServicesRepository {
 
   Future<RespFetch> getPosiciones(String token) async => await Fetcher.get(
         Uri.http(url, "", {}),
-        headers: {"Content-Type": "application/json", "Authorizaton": token},
+        headers: {"Authorizaton": token},
       );
 
   Future<RespFetch<List<CatalogoArticulos>>> getProductList(

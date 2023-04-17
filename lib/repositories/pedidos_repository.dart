@@ -8,9 +8,11 @@ import 'package:logistica_app_bloc/models/params/listado_pedidos_en_ruta_query.d
 class PedidosRepository {
   Future<RespFetch<List<RutaDespachoView>>> listaRutas(
           String token, ListaRutasQuery query) async =>
-      await Fetcher.get(URL("Pedidos/ListaRutas", query.toJson()));
+      await Fetcher.get(URL("Pedidos/ListaRutas", query.toJson()),
+          headers: {"Authorizaton": token});
 
   Future<RespFetch<List<PedidoEnRuta>>> listadoPedidosRuta(
           String token, ListadoPedidosEnRutaQuery query) async =>
-      await Fetcher.get(URL("Pedidos/ListadoPedidosEnRuta", query.toJson()));
+      await Fetcher.get(URL("Pedidos/ListadoPedidosEnRuta", query.toJson()),
+          headers: {"Authorizaton": token});
 }

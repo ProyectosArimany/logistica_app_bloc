@@ -6,6 +6,7 @@ class MoverTarimasState {
     required this.controllerLoteOrigen,
     required this.controllerCodigo,
     required this.controllerNombre,
+    required this.almacenDestino,
     required this.controllerLugarDestino,
     required this.controllerPosicionDestino,
     required this.almacenes,
@@ -15,6 +16,7 @@ class MoverTarimasState {
   final TextEditingController controllerLoteOrigen;
   final TextEditingController controllerCodigo;
   final TextEditingController controllerNombre;
+  final String almacenDestino;
   final TextEditingController controllerLugarDestino;
   final TextEditingController controllerPosicionDestino;
   final List<Almacen> almacenes;
@@ -24,6 +26,7 @@ class MoverTarimasState {
     TextEditingController? controllerLoteOrigen,
     TextEditingController? controllerCodigo,
     TextEditingController? controllerNombre,
+    String? almacenDestino,
     TextEditingController? controllerLugarDestino,
     TextEditingController? controllerPosicionDestino,
     List<Almacen>? almacenes,
@@ -34,6 +37,7 @@ class MoverTarimasState {
         controllerLoteOrigen: controllerLoteOrigen ?? this.controllerLoteOrigen,
         controllerCodigo: controllerCodigo ?? this.controllerCodigo,
         controllerNombre: controllerNombre ?? this.controllerNombre,
+        almacenDestino: almacenDestino ?? this.almacenDestino,
         controllerLugarDestino:
             controllerLugarDestino ?? this.controllerLugarDestino,
         controllerPosicionDestino:
@@ -49,6 +53,7 @@ class MoverTarimasInitialState extends MoverTarimasState {
           controllerLoteOrigen: TextEditingController(),
           controllerCodigo: TextEditingController(),
           controllerNombre: TextEditingController(),
+          almacenDestino: "",
           controllerLugarDestino: TextEditingController(),
           controllerPosicionDestino: TextEditingController(),
           almacenes: [],

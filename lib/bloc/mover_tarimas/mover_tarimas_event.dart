@@ -34,3 +34,9 @@ class ScanQRDoneDestinoEvent extends MoverTarimasEvent {
 
   final QRBarCodeData data;
 }
+
+class ChangeAlmacenDestinoEvent extends MoverTarimasEvent {
+  const ChangeAlmacenDestinoEvent({required this.almacen});
+
+  final String almacen;
+}

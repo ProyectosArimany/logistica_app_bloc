@@ -34,3 +34,9 @@ class ScanQRDoneDestinoEvent extends MoverUnidadesEvent {
 
   final QRBarCodeData data;
 }
+
+class ChangeAlmacenDestinoEvent extends MoverUnidadesEvent {
+  const ChangeAlmacenDestinoEvent({required this.almacen});
+
+  final String almacen;
+}

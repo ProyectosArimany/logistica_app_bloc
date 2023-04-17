@@ -49,5 +49,8 @@ class MoverUnidadesBloc extends Bloc<MoverUnidadesEvent, MoverUnidadesState> {
         controllerLugarDestino: TextEditingController(text: event.data.lote),
       ));
     });
+
+    on<ChangeAlmacenDestinoEvent>(
+        (event, emit) => emit(state.copyWith(almacenDestino: event.almacen)));
   }
 }

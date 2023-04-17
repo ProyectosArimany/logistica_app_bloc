@@ -7,6 +7,7 @@ class MoverUnidadesState {
     required this.controllerCodigo,
     required this.controllerNombre,
     required this.controllerCantidad,
+    required this.almacenDestino,
     required this.controllerLugarDestino,
     required this.controllerPosicionDestino,
     required this.controllerAlmacenDestino,
@@ -17,6 +18,7 @@ class MoverUnidadesState {
   final TextEditingController controllerLoteOrigen;
   final TextEditingController controllerCodigo;
   final TextEditingController controllerNombre;
+  final String almacenDestino;
   final TextEditingController controllerCantidad;
   final TextEditingController controllerLugarDestino;
   final TextEditingController controllerPosicionDestino;
@@ -29,6 +31,7 @@ class MoverUnidadesState {
     TextEditingController? controllerCodigo,
     TextEditingController? controllerNombre,
     TextEditingController? controllerCantidad,
+    String? almacenDestino,
     TextEditingController? controllerLugarDestino,
     TextEditingController? controllerPosicionDestino,
     TextEditingController? controllerAlmacenDestino,
@@ -41,6 +44,7 @@ class MoverUnidadesState {
         controllerCodigo: controllerCodigo ?? this.controllerCodigo,
         controllerNombre: controllerNombre ?? this.controllerNombre,
         controllerCantidad: controllerCantidad ?? this.controllerCantidad,
+        almacenDestino: almacenDestino ?? this.almacenDestino,
         controllerLugarDestino:
             controllerLugarDestino ?? this.controllerLugarDestino,
         controllerPosicionDestino:
@@ -59,6 +63,7 @@ class MoverUnidadesInitialState extends MoverUnidadesState {
           controllerCodigo: TextEditingController(),
           controllerNombre: TextEditingController(),
           controllerCantidad: TextEditingController(),
+          almacenDestino: "",
           controllerLugarDestino: TextEditingController(),
           controllerPosicionDestino: TextEditingController(),
           controllerAlmacenDestino: TextEditingController(),
