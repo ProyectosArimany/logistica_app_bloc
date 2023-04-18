@@ -8,8 +8,8 @@ class MoverUnidadesState {
     required this.controllerNombre,
     required this.controllerCantidad,
     required this.almacenDestino,
-    required this.controllerLugarDestino,
     required this.controllerPosicionDestino,
+    required this.controllerLoteDestino,
     required this.controllerAlmacenDestino,
     required this.almacenes,
   });
@@ -20,9 +20,9 @@ class MoverUnidadesState {
   final TextEditingController controllerNombre;
   final String almacenDestino;
   final TextEditingController controllerCantidad;
-  final TextEditingController controllerLugarDestino;
-  final TextEditingController controllerPosicionDestino;
   final TextEditingController controllerAlmacenDestino;
+  final TextEditingController controllerPosicionDestino;
+  final TextEditingController controllerLoteDestino;
   final List<Almacen> almacenes;
 
   MoverUnidadesState copyWith({
@@ -45,8 +45,8 @@ class MoverUnidadesState {
         controllerNombre: controllerNombre ?? this.controllerNombre,
         controllerCantidad: controllerCantidad ?? this.controllerCantidad,
         almacenDestino: almacenDestino ?? this.almacenDestino,
-        controllerLugarDestino:
-            controllerLugarDestino ?? this.controllerLugarDestino,
+        controllerLoteDestino:
+            controllerLugarDestino ?? this.controllerLoteDestino,
         controllerPosicionDestino:
             controllerPosicionDestino ?? this.controllerPosicionDestino,
         controllerAlmacenDestino:
@@ -64,7 +64,7 @@ class MoverUnidadesInitialState extends MoverUnidadesState {
           controllerNombre: TextEditingController(),
           controllerCantidad: TextEditingController(),
           almacenDestino: "",
-          controllerLugarDestino: TextEditingController(),
+          controllerLoteDestino: TextEditingController(),
           controllerPosicionDestino: TextEditingController(),
           controllerAlmacenDestino: TextEditingController(),
           almacenes: [],
