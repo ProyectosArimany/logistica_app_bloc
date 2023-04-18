@@ -32,14 +32,14 @@ class MoverUnidadesBloc extends Bloc<MoverUnidadesEvent, MoverUnidadesState> {
       final resultName = await productosRepository.getNombre(event.token,
           GetNombreProductoQuery(codigoUnico: event.data.producto));
 
-      state.copyWith(
+      emit(state.copyWith(
         controllerPosicionOrigen:
             TextEditingController(text: event.data.ubicacion),
         controllerLoteOrigen: TextEditingController(text: event.data.lote),
         controllerCodigo: TextEditingController(text: event.data.producto),
         controllerNombre:
             TextEditingController(text: resultName.data?[0].nombre ?? ""),
-      );
+      ));
     });
 
     on<ScanQRDoneDestinoEvent>((event, emit) {
