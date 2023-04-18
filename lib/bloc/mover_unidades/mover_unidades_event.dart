@@ -40,3 +40,17 @@ class ChangeAlmacenDestinoEvent extends MoverUnidadesEvent {
 
   final String almacen;
 }
+
+class OnChangeCantidadEvent extends MoverUnidadesEvent {
+  const OnChangeCantidadEvent(this.newValue);
+
+  final String newValue;
+}
+
+class OnIncrementEvent extends MoverUnidadesEvent {
+  const OnIncrementEvent();
+}
+
+class OnDecrementEvent extends MoverUnidadesEvent {
+  const OnDecrementEvent();
+}

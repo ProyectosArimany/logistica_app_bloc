@@ -52,5 +52,33 @@ class MoverUnidadesBloc extends Bloc<MoverUnidadesEvent, MoverUnidadesState> {
 
     on<ChangeAlmacenDestinoEvent>(
         (event, emit) => emit(state.copyWith(almacenDestino: event.almacen)));
+
+    on<OnChangeCantidadEvent>((event, emit) {
+      try {
+        final val = int.parse(event.newValue);
+        emit(state.copyWith(
+          controllerCantidad:
+              TextEditingController(text: event.newValue.toString()),
+        ));
+      } catch (e) {}
+    });
+
+    on<OnIncrementEvent>((event, emit) {
+      try {
+        final int value = int.parse(state.controllerCantidad.value.text) + 1;
+        emit(state.copyWith(
+          controllerCantidad: TextEditingController(text: value.toString()),
+        ));
+      } catch (e) {}
+    });
+
+    on<OnDecrementEvent>((event, emit) {
+      try {
+        final int value = int.parse(state.controllerCantidad.value.text) - 1;
+        emit(state.copyWith(
+          controllerCantidad: TextEditingController(text: value.toString()),
+        ));
+      } catch (e) {}
+    });
   }
 }
