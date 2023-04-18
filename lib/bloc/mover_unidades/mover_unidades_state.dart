@@ -62,7 +62,7 @@ class MoverUnidadesInitialState extends MoverUnidadesState {
           controllerLoteOrigen: TextEditingController(),
           controllerCodigo: TextEditingController(),
           controllerNombre: TextEditingController(),
-          controllerCantidad: TextEditingController(),
+          controllerCantidad: TextEditingController(text: "0"),
           almacenDestino: "",
           controllerLoteDestino: TextEditingController(),
           controllerPosicionDestino: TextEditingController(),
