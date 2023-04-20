@@ -7,5 +7,5 @@ class AxRepository {
   Future<RespFetch<List<Almacen>>> getAlmacenes(
           String token, GetAlmacenesQuery query) async =>
       await Fetcher.get(URL("AXService/Almacenes", query.toJson()),
-          headers: {"Authorization": token});
+          headers: {"Authorization": token}, maper: Almacen.fromJsonList);
 }
