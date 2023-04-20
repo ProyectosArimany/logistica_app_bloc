@@ -1,19 +1,13 @@
 class CreateMovementAxBody {
   CreateMovementAxBody({
-    required this.domain,
-    required this.user,
-    required this.password,
-    required this.company,
+    required this.empresa,
     required this.encabezado,
     required this.detalle,
     required this.registrarDiario,
     required this.borrarSiHayError,
   });
 
-  final String domain;
-  final String user;
-  final String password;
-  final String company;
+  final String empresa;
   final String encabezado;
   final String detalle;
   final bool registrarDiario;
@@ -21,10 +15,7 @@ class CreateMovementAxBody {
 
   factory CreateMovementAxBody.fromJson(Map<String, dynamic> json) =>
       CreateMovementAxBody(
-        domain: json["domain"],
-        user: json["user"],
-        password: json["password"],
-        company: json["company"],
+        empresa: json["company"],
         encabezado: json["encabezado"],
         detalle: json["detalle"],
         registrarDiario: json["registrarDiario"],
@@ -32,13 +23,10 @@ class CreateMovementAxBody {
       );
 
   Map<String, dynamic> toJson() => {
-        "domain": domain,
-        "user": user,
-        "password": password,
-        "company": company,
-        "encabezado": encabezado,
-        "detalle": detalle,
-        "registrarDiario": registrarDiario,
-        "borrarSiHayError": borrarSiHayError,
+        "Empresa": empresa,
+        "Encabezado": encabezado,
+        "Detalle": detalle,
+        "RegistrarDiario": registrarDiario,
+        "BorrarSiHayError": borrarSiHayError,
       };
 }
