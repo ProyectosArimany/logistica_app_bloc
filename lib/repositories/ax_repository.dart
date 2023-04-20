@@ -5,7 +5,7 @@ import 'package:logistica_app_bloc/utils/url.dart';
 
 class AxRepository {
   Future<RespFetch<List<Almacen>>> getAlmacenes(
-          String token, GetAlmacenesQuery query) =>
-      Fetcher.get(URL("AXService/Almacenes", query.toJson()),
+          String token, GetAlmacenesQuery query) async =>
+      await Fetcher.get(URL("AXService/Almacenes", query.toJson()),
           headers: {"Authorization": token});
 }
