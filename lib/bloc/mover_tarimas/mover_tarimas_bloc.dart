@@ -4,14 +4,14 @@ import 'package:logistica_app_bloc/models/almacen.dart';
 import 'package:logistica_app_bloc/models/params/get_almacenes_query.dart';
 import 'package:logistica_app_bloc/models/params/get_nombre_producto_query.dart';
 import 'package:logistica_app_bloc/models/qr_barcode_data.dart';
-import 'package:logistica_app_bloc/repositories/ax_services_repository.dart';
+import 'package:logistica_app_bloc/repositories/ax_repository.dart';
 import 'package:logistica_app_bloc/repositories/productos_repository.dart';
 
 part 'mover_tarimas_event.dart';
 part 'mover_tarimas_state.dart';
 
 class MoverTarimasBloc extends Bloc<MoverTarimasEvent, MoverTarimasState> {
-  final AXServicesRepository axRepository;
+  final AxRepository axRepository;
   final ProductosRepository productosRepository;
 
   MoverTarimasBloc(
