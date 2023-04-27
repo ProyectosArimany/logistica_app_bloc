@@ -1,3 +1,8 @@
+import 'dart:convert';
+
+import 'package:logistica_app_bloc/models/detalle_trasferencia.dart';
+import 'package:logistica_app_bloc/models/header_transferencia.dart';
+
 class CreateMovementAxBody {
   CreateMovementAxBody({
     required this.empresa,
@@ -8,24 +13,25 @@ class CreateMovementAxBody {
   });
 
   final String empresa;
-  final String encabezado;
-  final String detalle;
+  final HeaderTransferencia encabezado;
+  final DetalleTransferencia detalle;
   final bool registrarDiario;
   final bool borrarSiHayError;
 
   factory CreateMovementAxBody.fromJson(Map<String, dynamic> json) =>
       CreateMovementAxBody(
         empresa: json["company"],
-        encabezado: json["encabezado"],
-        detalle: json["detalle"],
+        encabezado:
+            HeaderTransferencia.fromJson(jsonDecode(json["encabezado"])),
+        detalle: DetalleTransferencia.fromJson(jsonDecode(json["detalle"])),
         registrarDiario: json["registrarDiario"],
         borrarSiHayError: json["borrarSiHayError"],
       );
 
   Map<String, dynamic> toJson() => {
         "Empresa": empresa,
-        "Encabezado": encabezado,
-        "Detalle": detalle,
+        "Encabezado": jsonEncode(encabezado.toJson()),
+        "Detalle": jsonEncode(detalle.toJson()),
         "RegistrarDiario": registrarDiario,
         "BorrarSiHayError": borrarSiHayError,
       };
