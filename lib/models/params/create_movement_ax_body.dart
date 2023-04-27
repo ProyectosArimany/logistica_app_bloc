@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:logistica_app_bloc/models/detalle_trasferencia.dart';
-import 'package:logistica_app_bloc/models/header_transferencia.dart';
+import 'package:logistica_app_bloc/models/params/detalle_trasferencia.dart';
+import 'package:logistica_app_bloc/models/params/header_transferencia.dart';
 
 class CreateMovementAxBody {
   CreateMovementAxBody({
