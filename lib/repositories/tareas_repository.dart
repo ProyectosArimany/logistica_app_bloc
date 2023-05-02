@@ -23,7 +23,7 @@ class TareasRepository {
       await Fetcher.post(URL("Tareas/CrearTarea", query.toJson()),
           headers: {"Authorization": token}, maper: Tarea.fromJson);
 
-  Future<RespFetch<TareaAsignada>> listaTareasAsignadas(
+  Future<RespFetch<List<TareaAsignada>>> listaTareasAsignadas(
           String token, ListaTareasAsignadasQuery query) async =>
       await Fetcher.get(URL("Tareas/ListaTareasAsignadas", query.toJson()),
           headers: {"Authorization": token}, maper: TareaAsignada.fromJson);
