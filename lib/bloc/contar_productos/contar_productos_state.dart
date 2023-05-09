@@ -9,6 +9,7 @@ class ContarProductosState {
     required this.almacenDestino,
     required this.controllerPosicionDestino,
     required this.controllerLoteDestino,
+    required this.cantidad,
     required this.almacenes,
   });
 
@@ -19,6 +20,7 @@ class ContarProductosState {
   final String almacenDestino;
   final TextEditingController controllerPosicionDestino;
   final TextEditingController controllerLoteDestino;
+  final int cantidad;
   final List<Almacen> almacenes;
 
   ContarProductosState copyWith({
@@ -29,6 +31,7 @@ class ContarProductosState {
     String? almacenDestino,
     TextEditingController? controllerLugarDestino,
     TextEditingController? controllerPosicionDestino,
+    int? cantidad,
     List<Almacen>? almacenes,
   }) =>
       ContarProductosState(
@@ -42,6 +45,7 @@ class ContarProductosState {
             controllerLugarDestino ?? this.controllerLoteDestino,
         controllerPosicionDestino:
             controllerPosicionDestino ?? this.controllerPosicionDestino,
+        cantidad: cantidad ?? this.cantidad,
         almacenes: almacenes ?? this.almacenes,
       );
 }
@@ -56,6 +60,7 @@ class ContarProductosInitialState extends ContarProductosState {
           controllerPosicionDestino: TextEditingController(),
           controllerPosicionOrigen: TextEditingController(),
           controllerNombre: TextEditingController(),
+          cantidad: 0,
           almacenes: [],
         );
 }
