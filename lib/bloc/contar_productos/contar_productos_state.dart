@@ -49,7 +49,7 @@ class ContarProductosInitialState extends ContarProductosState {
           controllerLote: TextEditingController(),
           controllerPosicion: TextEditingController(),
           controllerNombre: TextEditingController(),
-          cantidad: TextEditingController(),
+          cantidad: TextEditingController(text: "0"),
           almacenes: [],
         );
 }

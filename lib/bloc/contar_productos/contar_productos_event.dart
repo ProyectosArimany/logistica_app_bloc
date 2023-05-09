@@ -16,3 +16,11 @@ class OnChangeCantidadEvent extends ContarProductosEvent {
 
   final String newValue;
 }
+
+class OnIncrementEvent extends ContarProductosEvent {
+  const OnIncrementEvent();
+}
+
+class OnDecrementEvent extends ContarProductosEvent {
+  const OnDecrementEvent();
+}

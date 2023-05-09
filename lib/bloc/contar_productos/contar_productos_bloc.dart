@@ -35,5 +35,23 @@ class ContarProductosBloc
         ));
       } catch (e) {}
     });
+
+    on<OnIncrementEvent>((event, emit) {
+      try {
+        final int value = int.parse(state.cantidad.value.text) + 1;
+        emit(state.copyWith(
+          cantidad: TextEditingController(text: value.toString()),
+        ));
+      } catch (e) {}
+    });
+
+    on<OnDecrementEvent>((event, emit) {
+      try {
+        final int value = int.parse(state.cantidad.value.text) - 1;
+        emit(state.copyWith(
+          cantidad: TextEditingController(text: value.toString()),
+        ));
+      } catch (e) {}
+    });
   }
 }
