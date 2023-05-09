@@ -2,30 +2,26 @@ part of 'contar_productos_bloc.dart';
 
 class ContarProductosState {
   const ContarProductosState({
-    required this.controllerPosicionOrigen,
-    required this.controllerLoteOrigen,
+    required this.controllerPosicion,
+    required this.controllerLote,
     required this.controllerCodigo,
     required this.controllerNombre,
     required this.almacenDestino,
-    required this.controllerPosicionDestino,
-    required this.controllerLoteDestino,
     required this.cantidad,
     required this.almacenes,
   });
 
-  final TextEditingController controllerPosicionOrigen;
-  final TextEditingController controllerLoteOrigen;
+  final TextEditingController controllerPosicion;
+  final TextEditingController controllerLote;
   final TextEditingController controllerCodigo;
   final TextEditingController controllerNombre;
-  final String almacenDestino;
-  final TextEditingController controllerPosicionDestino;
-  final TextEditingController controllerLoteDestino;
   final TextEditingController cantidad;
+  final String almacenDestino;
   final List<Almacen> almacenes;
 
   ContarProductosState copyWith({
-    TextEditingController? controllerPosicionOrigen,
-    TextEditingController? controllerLoteOrigen,
+    TextEditingController? controllerPosicion,
+    TextEditingController? controllerLote,
     TextEditingController? controllerCodigo,
     TextEditingController? controllerNombre,
     String? almacenDestino,
@@ -35,16 +31,11 @@ class ContarProductosState {
     List<Almacen>? almacenes,
   }) =>
       ContarProductosState(
-        controllerPosicionOrigen:
-            controllerPosicionOrigen ?? this.controllerPosicionOrigen,
-        controllerLoteOrigen: controllerLoteOrigen ?? this.controllerLoteOrigen,
+        controllerPosicion: controllerPosicion ?? this.controllerPosicion,
+        controllerLote: controllerLote ?? this.controllerLote,
         controllerCodigo: controllerCodigo ?? this.controllerCodigo,
         controllerNombre: controllerNombre ?? this.controllerNombre,
         almacenDestino: almacenDestino ?? this.almacenDestino,
-        controllerLoteDestino:
-            controllerLugarDestino ?? this.controllerLoteDestino,
-        controllerPosicionDestino:
-            controllerPosicionDestino ?? this.controllerPosicionDestino,
         cantidad: cantidad ?? this.cantidad,
         almacenes: almacenes ?? this.almacenes,
       );
@@ -55,10 +46,8 @@ class ContarProductosInitialState extends ContarProductosState {
       : super(
           almacenDestino: "",
           controllerCodigo: TextEditingController(),
-          controllerLoteDestino: TextEditingController(),
-          controllerLoteOrigen: TextEditingController(),
-          controllerPosicionDestino: TextEditingController(),
-          controllerPosicionOrigen: TextEditingController(),
+          controllerLote: TextEditingController(),
+          controllerPosicion: TextEditingController(),
           controllerNombre: TextEditingController(),
           cantidad: TextEditingController(),
           almacenes: [],

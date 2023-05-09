@@ -15,25 +15,25 @@ class ContarProductosBloc
 
   ContarProductosBloc({required this.productosRepository})
       : super(ContarProductosInitialState()) {
-    on<ScanQRDoneOrigenEvent>((event, emit) async {
+    on<ScanQRDoneEvent>((event, emit) async {
       final resultName = await productosRepository.getNombre(event.token,
           GetNombreProductoQuery(codigoUnico: event.data.producto));
 
       emit(state.copyWith(
-          controllerPosicionOrigen:
-              TextEditingController(text: event.data.ubicacion),
-          controllerLoteOrigen: TextEditingController(text: event.data.lote),
+          controllerPosicion: TextEditingController(text: event.data.ubicacion),
+          controllerLote: TextEditingController(text: event.data.lote),
           controllerCodigo: TextEditingController(text: event.data.producto),
           controllerNombre:
               TextEditingController(text: resultName.data?[0].nombre ?? "")));
     });
 
-    on<ScanQRDoneDestinoEvent>((event, emit) {
-      emit(state.copyWith(
-        controllerPosicionDestino:
-            TextEditingController(text: event.data.ubicacion),
-        controllerLugarDestino: TextEditingController(text: event.data.lote),
-      ));
+    on<OnChangeCantidadEvent>((event, emit) {
+      try {
+        final val = int.parse(event.newValue);
+        emit(state.copyWith(
+          cantidad: TextEditingController(text: event.newValue.toString()),
+        ));
+      } catch (e) {}
     });
   }
 }
