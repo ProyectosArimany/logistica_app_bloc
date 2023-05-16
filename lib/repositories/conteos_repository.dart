@@ -27,6 +27,8 @@ class ConteosRepository {
       );
 
   Future<RespFetch<String>> deleteConteos(String token, dynamic query) async =>
-      await Fetcher.delete(URL("Conteos", {}),
-          headers: {"Authorization": token});
+      await Fetcher.delete(
+        URL("Conteos", {}),
+        headers: {"Authorization": token},
+      );
 }
