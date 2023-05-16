@@ -5,7 +5,6 @@ import 'package:logistica_app_bloc/models/params/get_nombre_producto_query.dart'
 import 'package:logistica_app_bloc/models/qr_barcode_data.dart';
 import 'package:logistica_app_bloc/repositories/conteos_repository.dart';
 import 'package:logistica_app_bloc/repositories/productos_repository.dart';
-import 'package:meta/meta.dart';
 
 part 'contar_productos_event.dart';
 part 'contar_productos_state.dart';
