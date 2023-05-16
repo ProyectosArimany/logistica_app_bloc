@@ -3,7 +3,7 @@ import 'package:logistica_app_bloc/models/params/get_conteos_query.dart';
 import 'package:logistica_app_bloc/repositories/provider_http.dart';
 import 'package:logistica_app_bloc/utils/url.dart';
 
-class ConteosResitory {
+class ConteosRepository {
   Future<RespFetch<List<Conteos>>> getConteos(
     String token,
     String? codigoUnico,
