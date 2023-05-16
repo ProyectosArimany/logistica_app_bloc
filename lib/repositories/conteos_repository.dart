@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:logistica_app_bloc/models/conteo.dart';
 import 'package:logistica_app_bloc/models/params/get_conteos_query.dart';
 import 'package:logistica_app_bloc/repositories/provider_http.dart';
@@ -23,7 +24,7 @@ class ConteosRepository {
       await Fetcher.post(
         URL("Conteos", {}),
         headers: {"Authorization": token},
-        body: conteo.toJson(),
+        body: jsonEncode(conteo.toJson()),
       );
 
   Future<RespFetch<String>> deleteConteos(String token, dynamic query) async =>

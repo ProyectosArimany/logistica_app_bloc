@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:logistica_app_bloc/models/almacen.dart';
 import 'package:logistica_app_bloc/models/catalogo_articulos.dart';
 import 'package:logistica_app_bloc/models/params/create_movement_ax_body.dart';
@@ -56,7 +58,7 @@ class AXServicesRepository {
       await Fetcher.post(
         URL("/AXServices/AXService/CreateJournal", {}, url: url),
         headers: {"Authorization": token},
-        body: body.toJson(),
+        body: jsonEncode(body.toJson()),
       );
 
   Future<RespFetch<List>> postMovementAX(
@@ -64,7 +66,7 @@ class AXServicesRepository {
       await Fetcher.post(
         URL("/AXServices/AXService/postJournal", {}, url: url),
         headers: {"Authorization": token},
-        body: body.toJson(),
+        body: jsonEncode(body.toJson()),
       );
 
   Future<RespFetch<List>> deleteMovementAX(
@@ -72,6 +74,6 @@ class AXServicesRepository {
       await Fetcher.post(
         URL("/AXServices/AXService/DeleteJournal", {}, url: url),
         headers: {"Authorization": token},
-        body: body.toJson(),
+        body: jsonEncode(body.toJson()),
       );
 }

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:logistica_app_bloc/models/params/create_movement_ax_body.dart';
 import 'package:logistica_app_bloc/models/params/delete_movement_ax_body.dart';
 import 'package:logistica_app_bloc/models/params/post_movement_ax_body.dart';
@@ -10,12 +12,12 @@ class AxWCFRepository {
   Future<RespFetch<List>> createMovementAX(
           String token, CreateMovementAxBody body) async =>
       await Fetcher.post(URL("AXWCF/PostJournal", {}),
-          headers: {"Authorization": token}, body: body);
+          headers: {"Authorization": token}, body: jsonEncode(body.toJson()));
 
   Future<RespFetch<List>> postMovementAX(
           String token, PostMovementAxBody body) async =>
       await Fetcher.post(URL("AXWCF/CreateJournal", {}),
-          headers: {"Authorization": token}, body: body);
+          headers: {"Authorization": token}, body: jsonEncode(body.toJson()));
 
   Future<RespFetch<List>> deleteMovementAX(
           String token, DeleteMovementAxBody body) async =>
