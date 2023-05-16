@@ -7,10 +7,10 @@ class Conteos {
 
   Conteos({
     required this.codigoUnico,
-    required this.cantidadEnSistemas,
-    required this.usuarioQueRealiza,
-    required this.fechaDeInventario,
-    required this.conteoCerrado,
+    this.cantidadEnSistemas = 0.0,
+    this.usuarioQueRealiza = "",
+    this.fechaDeInventario = "",
+    this.conteoCerrado = 0,
   });
 
   factory Conteos.fromJson(Map<String, dynamic> json) => Conteos(
