@@ -6,6 +6,8 @@ import 'package:logistica_app_bloc/repositories/provider_http.dart';
 import 'package:logistica_app_bloc/utils/url.dart';
 
 class ProductosRepository {
+  const ProductosRepository();
+
   Future<RespFetch<List<NombreProducto>>> getNombre(
       String token, GetNombreProductoQuery query) async {
     return await Fetcher.get<List<NombreProducto>>(

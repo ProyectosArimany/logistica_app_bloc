@@ -13,6 +13,8 @@ import 'package:logistica_app_bloc/models/tarea.dart';
 import 'package:logistica_app_bloc/utils/url.dart';
 
 class TareasRepository {
+  const TareasRepository();
+
   Future<RespFetch<List<TareaView>>> listaTareas(
           String token, ListaTareasAsignadasQuery query) async =>
       await Fetcher.get(URL("Tareas/ListaTareas", query.toJson()),
