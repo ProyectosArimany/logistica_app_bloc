@@ -1,4 +1,5 @@
 import 'package:logistica_app_bloc/models/almacen.dart';
+import 'package:logistica_app_bloc/models/existencia_producto_view.dart';
 import 'package:logistica_app_bloc/models/params/get_almacenes_query.dart';
 import 'package:logistica_app_bloc/repositories/provider_http.dart';
 import 'package:logistica_app_bloc/utils/url.dart';
@@ -10,4 +11,11 @@ class AxRepository {
           String token, GetAlmacenesQuery query) async =>
       await Fetcher.get(URL("AXService/Almacenes", query.toJson()),
           headers: {"Authorization": token}, maper: Almacen.fromJsonList);
+
+  Future<RespFetch<List<dynamic>>> getExistenciaProductos(String token) async =>
+      await Fetcher.get(
+        URL("AXService/ExistenciaProductos", {}),
+        headers: {"Authorization": token},
+        maper: ExistencaPorLoteView.fromJsonList,
+      );
 }
