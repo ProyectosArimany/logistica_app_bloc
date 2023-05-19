@@ -12,7 +12,8 @@ class AxRepository {
       await Fetcher.get(URL("AXService/Almacenes", query.toJson()),
           headers: {"Authorization": token}, maper: Almacen.fromJsonList);
 
-  Future<RespFetch<List<dynamic>>> getExistenciaProductos(String token) async =>
+  Future<RespFetch<List<ExistencaPorLoteView>>> getExistenciaProductos(
+          String token) async =>
       await Fetcher.get(
         URL("AXService/ExistenciaProductos", {}),
         headers: {"Authorization": token},
