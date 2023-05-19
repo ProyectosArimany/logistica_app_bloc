@@ -13,9 +13,9 @@ class AxRepository {
           headers: {"Authorization": token}, maper: Almacen.fromJsonList);
 
   Future<RespFetch<List<ExistencaPorLoteView>>> getExistenciaProductos(
-          String token, String itemId) async =>
+          String token, String? itemId) async =>
       await Fetcher.get(
-        URL("AXService/ExistenciaProductos", {"ItemId": itemId}),
+        URL("AXService/ExistenciaProductos", {"ItemId": itemId ?? ""}),
         headers: {"Authorization": token},
         maper: ExistencaPorLoteView.fromJsonList,
       );
