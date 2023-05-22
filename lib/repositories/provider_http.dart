@@ -213,16 +213,20 @@ class Fetcher {
     try {
       final dynamic data = jsonDecode(peticion.body);
 
+      if (peticion.statusCode > 210 && data.runtimeType == String) {
+        return RespFetch(status: peticion.statusCode, data: null, msg: data);
+      }
+
       try {
+        //TODO: comprobar los estados antes, y retornar con msg lleno cuando no
         Maper == null
             ? respuesta =
                 RespFetch(status: peticion.statusCode, data: data, msg: "")
             : respuesta = RespFetch(
                 status: peticion.statusCode, data: Maper(data), msg: "");
       } catch (err) {
-        const String msg =
-            "Los datos recibidos no pueden ser convertidos a objetos de tipo 'Maper'";
-        respuesta = const RespFetch(status: 1000, data: null, msg: msg);
+        String msg = "CONVERSIÓN A 'Maper' INCORRECTA: ${err.toString()}.";
+        respuesta = RespFetch(status: 1000, data: null, msg: msg);
       }
     } catch (e) {
       respuesta =

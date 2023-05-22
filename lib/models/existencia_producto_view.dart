@@ -31,19 +31,19 @@ class ExistencaPorLoteView {
 
   factory ExistencaPorLoteView.fromJson(Map<String, dynamic> json) =>
       ExistencaPorLoteView(
-        partition: json["Partition"],
-        empresa: json["Empresa"],
-        itemId: json["ItemId"],
-        configId: json["ConfigId"],
-        inventSizeId: json["InventSizeId"],
-        inventColorId: json["InventColorId"],
-        inventStyleId: json["InventStyleId"],
-        almacen: json["Almacen"],
-        ubicacion: json["Ubicacion"],
-        lote: json["Lote"],
-        disponible: json["Disponible"]?.toDouble(),
-        itemCode: json["ItemCode"],
-        retailVariantId: json["RetailVariantId"],
+        partition: json["partition"],
+        empresa: json["empresa"],
+        itemId: json["itemId"],
+        configId: json["configId"],
+        inventSizeId: json["inventSizeId"],
+        inventColorId: json["inventColorId"],
+        inventStyleId: json["inventStyleId"],
+        almacen: json["almacen"],
+        ubicacion: json["abicacion"],
+        lote: json["lote"],
+        disponible: json["disponible"]?.toDouble(),
+        itemCode: json["itemCode"],
+        retailVariantId: json["retailVariantId"],
       );
 
   static List<ExistencaPorLoteView> fromJsonList(List lista) => lista
