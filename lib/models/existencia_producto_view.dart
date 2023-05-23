@@ -39,7 +39,7 @@ class ExistencaPorLoteView {
         inventColorId: json["inventColorId"],
         inventStyleId: json["inventStyleId"],
         almacen: json["almacen"],
-        ubicacion: json["abicacion"],
+        ubicacion: json["ubicacion"],
         lote: json["lote"],
         disponible: json["disponible"]?.toDouble(),
         itemCode: json["itemCode"],
