@@ -31,7 +31,7 @@ class ExistencaPorLoteView {
 
   factory ExistencaPorLoteView.fromJson(Map<String, dynamic> json) =>
       ExistencaPorLoteView(
-        partition: int.parse(json["partition"]),
+        partition: json["partition"],
         empresa: json["empresa"],
         itemId: json["itemId"],
         configId: json["configId"],
