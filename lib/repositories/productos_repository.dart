@@ -9,20 +9,18 @@ class ProductosRepository {
   const ProductosRepository();
 
   Future<RespFetch<List<NombreProducto>>> getNombre(
-      String token, GetNombreProductoQuery query) async {
-    return await Fetcher.get<List<NombreProducto>>(
-      URL("Productos/GetNombre", query.toJson()),
-      headers: {"Authorization": token},
-      maper: NombreProducto.fromJsonList,
-    );
-  }
+          String token, GetNombreProductoQuery query) async =>
+      await Fetcher.get<List<NombreProducto>>(
+        URL("Productos/GetNombre", query.toJson()),
+        headers: {"Authorization": token},
+        maper: NombreProducto.fromJsonList,
+      );
 
   Future<RespFetch<List<InfoProducto>>> getInfoProductos(
-      String token, GetInfoProductosQuery query) async {
-    return await Fetcher.get<List<InfoProducto>>(
-      URL("Productos/GetInfoProductos", query.toJson()),
-      headers: {"Authorization": token},
-      maper: InfoProducto.fromJson,
-    );
-  }
+          String token, GetInfoProductosQuery query) async =>
+      await Fetcher.get<List<InfoProducto>>(
+        URL("Productos/GetInfoProductos", query.toJson()),
+        headers: {"Authorization": token},
+        maper: InfoProducto.fromJson,
+      );
 }
