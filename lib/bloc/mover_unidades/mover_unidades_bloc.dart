@@ -57,8 +57,7 @@ class MoverUnidadesBloc extends Bloc<MoverUnidadesEvent, MoverUnidadesState> {
       try {
         final val = int.parse(event.newValue);
         emit(state.copyWith(
-          controllerCantidad:
-              TextEditingController(text: event.newValue.toString()),
+          controllerCantidad: TextEditingController(text: val.toString()),
         ));
       } catch (e) {}
     });

@@ -33,7 +33,7 @@ class ContarProductosBloc
       try {
         final val = int.parse(event.newValue);
         emit(state.copyWith(
-          cantidad: TextEditingController(text: event.newValue.toString()),
+          cantidad: TextEditingController(text: val.toString()),
         ));
       } catch (e) {}
     });
