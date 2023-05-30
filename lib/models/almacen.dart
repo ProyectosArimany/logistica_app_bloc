@@ -1,24 +1,21 @@
-import 'dart:convert';
-
-Almacen almacenFromJson(String str) => Almacen.fromJson(json.decode(str));
-
-String almacenToJson(Almacen data) => json.encode(data.toJson());
-
 class Almacen {
   Almacen({
     required this.almacen,
     required this.nombre,
     required this.usaAnaquel,
+    required this.sitio,
   });
 
   final String almacen;
   final String nombre;
   final bool usaAnaquel;
+  final String sitio;
 
   factory Almacen.fromJson(Map<String, dynamic> json) => Almacen(
         almacen: json["almacen"],
         nombre: json["nombre"],
         usaAnaquel: json["usaAnaquel"],
+        sitio: json["sitio"],
       );
 
   static List<Almacen> fromJsonList(List lista) =>
@@ -28,5 +25,6 @@ class Almacen {
         "almacen": almacen,
         "nombre": nombre,
         "usaAnaquel": usaAnaquel,
+        "sitio": sitio,
       };
 }
