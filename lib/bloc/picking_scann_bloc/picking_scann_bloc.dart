@@ -13,8 +13,18 @@ class PickingScannBloc extends Bloc<PickingScannEvent, PickingScannState> {
     on<GetListaSubTareasAsignadas>(((event, emit) async {
       var lista =
           await tareasProvider.listadoSubTareas(event.token, event.query);
-      if (lista.status != 200) return emit(state.copyWith(listaSubTareas: []));
-      emit(state.copyWith(listaSubTareas: lista.data));
+      if (lista.status != 200) {
+        return emit(state.copyWith(
+          listaSubTareas: [],
+          errorListaSubTareas: true,
+          msgErrorListaSubTareas: lista.msg,
+        ));
+      }
+      emit(state.copyWith(
+        listaSubTareas: lista.data,
+        errorListaSubTareas: false,
+        msgErrorListaSubTareas: '',
+      ));
     }));
   }
 }
