@@ -10,7 +10,7 @@ class PickingScannBloc extends Bloc<PickingScannEvent, PickingScannState> {
   final TareasRepository tareasProvider;
 
   PickingScannBloc(this.tareasProvider) : super(PickingScannInitialState()) {
-    on<GetListaSubTareasAsignadas>(((event, emit) async {
+    on<GetListaSubTareasAsignadas>((event, emit) async {
       var lista =
           await tareasProvider.listadoSubTareas(event.token, event.query);
       if (lista.status != 200) {
@@ -25,6 +25,6 @@ class PickingScannBloc extends Bloc<PickingScannEvent, PickingScannState> {
         errorListaSubTareas: false,
         msgErrorListaSubTareas: '',
       ));
-    }));
+    });
   }
 }
