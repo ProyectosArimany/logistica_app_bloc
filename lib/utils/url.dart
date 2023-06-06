@@ -5,6 +5,11 @@ Uri URL(String? params, Map<String, dynamic>? query,
     for (var i = 0; i < keys.length; i++) {
       if (query[keys[i]] == null) query.remove(keys[i]);
     }
+    for (var j = 0; j < query.keys.length; j++) {
+      if (query[keys[j]] is! String) {
+        query[keys[j]] = query[keys[j]].toString();
+      }
+    }
   }
   return !http
       ? Uri.https(url ?? urll, params ?? "", query)
