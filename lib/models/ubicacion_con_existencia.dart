@@ -10,6 +10,7 @@ class UbicacionConExistencia {
   final String nivel;
   final String anaquel;
   final double disponible;
+  final String sitio;
 
   UbicacionConExistencia({
     required this.codigoUnico,
@@ -23,6 +24,7 @@ class UbicacionConExistencia {
     required this.nivel,
     required this.anaquel,
     required this.disponible,
+    required this.sitio,
   });
 
   factory UbicacionConExistencia.fromJson(Map<String, dynamic> json) =>
@@ -38,6 +40,7 @@ class UbicacionConExistencia {
         nivel: json["Nivel"],
         anaquel: json["Anaquel"],
         disponible: json["Disponible"]?.toDouble(),
+        sitio: json["Sitio"],
       );
 
   static List<UbicacionConExistencia> fromJsonList(List list) => list
@@ -57,5 +60,6 @@ class UbicacionConExistencia {
         "Nivel": nivel,
         "Anaquel": anaquel,
         "Disponible": disponible,
+        "Sitio": sitio,
       };
 }

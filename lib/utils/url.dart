@@ -16,4 +16,4 @@ Uri URL(String? params, Map<String, dynamic>? query,
       : Uri.http(url ?? urll, params ?? "", query);
 }
 
-const String urll = "192.168.0.230:8081";
+const String urll = "http://juliorojas.triton.com.gt:8081";
